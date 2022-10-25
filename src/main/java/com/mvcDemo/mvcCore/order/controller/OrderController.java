@@ -1,4 +1,4 @@
-package com.mvcDemo.mvcCore.order;
+package com.mvcDemo.mvcCore.order.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;

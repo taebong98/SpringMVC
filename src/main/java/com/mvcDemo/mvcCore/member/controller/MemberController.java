@@ -21,8 +21,6 @@ public class MemberController {
     @PatchMapping("/{member-id}")
     public ResponseEntity patchMember(@PathVariable("member-id") Long memberId, @RequestBody MemberPatchDto memberPatchDto) {
         memberPatchDto.setMemberId(memberId);
-        memberPatchDto.setName("홍길동");
-        memberPatchDto.setEmail("aaa@naver.com");
 
         return new ResponseEntity(memberPatchDto, HttpStatus.OK);
     }

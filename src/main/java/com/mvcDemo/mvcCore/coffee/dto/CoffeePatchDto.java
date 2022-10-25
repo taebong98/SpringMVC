@@ -1,17 +1,16 @@
 package com.mvcDemo.mvcCore.coffee.dto;
 
+import com.mvcDemo.mvcCore.member.dto.NotSpace;
+
+import javax.validation.constraints.Pattern;
+
 public class CoffeePatchDto {
-    private Long coffeeId;
+    @Pattern(regexp = "^\\S+(\\s?\\S+)*$", message = "커피 이름은 공백이 아니어야 합니다.")
     private String coffeeName;
+
+    @Price
     private int price;
 
-    public Long getCoffeeId() {
-        return coffeeId;
-    }
-
-    public void setCoffeeId(Long coffeeId) {
-        this.coffeeId = coffeeId;
-    }
 
     public String getCoffeeName() {
         return coffeeName;

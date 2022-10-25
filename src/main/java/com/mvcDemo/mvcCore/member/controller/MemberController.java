@@ -1,24 +1,36 @@
 package com.mvcDemo.mvcCore.member.controller;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.RequestEntity;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
-@RequestMapping(value = "/v1/members", produces = {MediaType.APPLICATION_JSON_VALUE})
+@RequestMapping(value = "/v1/members")
 public class MemberController {
     @PostMapping
-    public String postMember(@RequestParam("email") String email, @RequestParam("name") String name, @RequestParam("phone") String phone) {
-        String response =
-                "{\"" +
-                        "email\":\""+email+"\"," +
-                        "\"name\":\""+name+"\",\"" +
-                        "phone\":\"" + phone+
-                        "\"}";
-        return response;
+    public ResponseEntity postMember(@RequestParam("email") String email,
+                                     @RequestParam("name") String name,
+                                     @RequestParam("phone") String phone) {
+        Map<String, String> map = new HashMap<>();
+        map.put("email", email);
+        map.put("name", name);
+        map.put("phone", phone);
+
+        return new ResponseEntity<>(map, HttpStatus.CREATED);
+    }
+
+    @GetMapping("/{member-id}")
+    public ResponseEntity getMember(@RequestParam("/{member-id}") Long memberId) {
+        return new ResponseEntity(HttpStatus.OK);
     }
 
     @GetMapping
-    public String getMembers() {
-        return null;
+    public ResponseEntity getMembers() {
+        return new ResponseEntity(HttpStatus.OK);
     }
 }

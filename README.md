@@ -13,3 +13,7 @@ Spring MVC 패턴 학습용 프로젝트입니다.
 - 커피이름: coffeeName
 - 가격: price
 
+### OrdersController 핸들러
+##### ✔️ 필요한 정보
+- memberId
+- coffeeId
